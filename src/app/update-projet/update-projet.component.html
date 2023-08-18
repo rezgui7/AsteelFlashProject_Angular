@@ -1,0 +1,91 @@
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+
+
+                
+                <form #projectForm="ngForm" (ngSubmit)="updateProject()">
+                    
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example1" [(ngModel)]="project.client" name="client"/>
+                        <label class="form-label" for="form1Example1">Client</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example2" [(ngModel)]="project.projet" name="projet"/>
+                        <label class="form-label" for="form1Example1">Project</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example3" [(ngModel)]="project.designation" name="designation"/>
+                        <label class="form-label" for="form1Example1">Designation</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example4" [(ngModel)]="project.test" name="test"/>
+                        <label class="form-label" for="form1Example1">Test</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example5" [(ngModel)]="project.pm" name="pm"/>
+                        <label class="form-label" for="form1Example1">PM</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example6" [(ngModel)]="project.pe" name="pe"/>
+                        <label class="form-label" for="form1Example1">PE</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <select id="form1Example7" name="status" [(ngModel)]="project.status" class="custom-select">
+                            <option *ngFor="let option of statusOptionss" [value]="option">{{ option }}</option>
+                          </select>
+                        <label class="form-label" for="form1Example9">Status</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="datetime" class="form-control" id="form1Example8" [(ngModel)]="project.start_date" name="start_date"/>
+                        <label class="form-label" for="form1Example9">Start Date</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="datetime" class="form-control" id="form1Example9" [(ngModel)]="project.end_date" name="end_date"/>
+                        <label class="form-label" for="form1Example9">End Date</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="datetime" class="form-control" id="form1Example10" [(ngModel)]="project.due_end_date" name="due_end_date"/>
+                        <label class="form-label" for="form1Example9">Due End Date</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example11" [(ngModel)]="project.progress" name="progress"/>
+                        <label class="form-label" for="form1Example9">Progress</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example12" [(ngModel)]="project.target" name="target"/>
+                        <label class="form-label" for="form1Example9">Target</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example13" [(ngModel)]="project.lead_time" name="lead_time"/>
+                        <label class="form-label" for="form1Example9">Lead Time</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example14" [(ngModel)]="project.delay" name="delay"/>
+                        <label class="form-label" for="form1Example9">Delay</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        
+                        <select id="form1Example7" name="projetType" [(ngModel)]="project.projetType" class="custom-select">
+                            <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+                          </select>
+                        <label class="form-label" for="form1Example9"> State </label>
+                    </div>
+                   
+                    <div align="end">
+                        <button type="button" class="btn btn-outline-dark">Clear</button>
+                        <button type="submit" class="btn btn-outline-success">Update Project</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

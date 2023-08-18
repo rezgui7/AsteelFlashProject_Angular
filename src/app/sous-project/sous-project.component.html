@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+        
+            <div class="mt-3">
+                <h2>Sous Projets</h2>
+            </div>
+            <br>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Type Sous Projet</th>
+                        <th scope="col">STATE</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of project">
+                        <th scope="row">{{ t.idSousProjet}}</th>
+                        <td>{{ t.sousProjetType}}</td>
+                        <td>{{ t.state}}</td>
+                        <td>
+                            <button [disabled]="t.state == 'Assigned'" type="button" class="btn btn-outline-success" (click)="AssignIt(t.idSousProjet)">Assign Team</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+           
+           
+
+        </div>
+    </div>
+</div>
+</div>

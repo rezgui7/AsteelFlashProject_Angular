@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h1> EQUIPE LIST </h1>
+    <br>
+    <br>
+
+    <table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">PM</th>
+			<th scope="col">NPP</th>
+			<th scope="col">NCP</th>
+            <th scope="col">Projet On Going</th>
+            <th scope="col">Projet Stand By</th>
+            <th scope="col">Projet Canceled</th>
+            <th scope="col">DEPARTMENT</th>
+            
+
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let t of equipeList">
+			<th scope="row">{{ t.idEquipe}}</th>
+			
+			<td>{{ t.pm }}</td>
+			<td>{{ t.npp}}</td>
+            <td>{{ t.ncp}}</td>
+            <td>{{ t.projet_on_going}}</td>
+            <td>{{ t.projet_stand_by}}</td>
+            <td>{{ t.projet_canceled}}</td>
+            <td>{{ t.equipeType }}</td>
+			
+            
+            <td>
+                <button type="button" class="btn btn-outline-success" (click)="viewDetails(t.idEquipe)">More Details</button>
+            </td>
+		</tr>
+	</tbody>
+</table>
+</div>

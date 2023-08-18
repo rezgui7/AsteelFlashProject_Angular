@@ -1,0 +1,64 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+	<h1> Team Member LIST </h1>
+
+	<br>
+    <br>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Member Name</th>
+				<th scope="col">Action</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let t of project">
+				<th scope="row">{{ t.idMember}}</th>
+				<td>{{ t.prenom}}</td>
+				<td  >
+					<button class="btn btn-outline-danger"   (click)="unassignMember(t.idMember)">Unassign Member</button>
+				
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+    <br>
+    <h1> All Member LIST </h1>
+    <br>
+    <br>
+
+    <table class="table table-striped" >
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Full Name</th>
+			<th scope="col">Action</th>
+			
+            
+
+
+		</tr>
+	</thead>
+	<tbody >
+		<tr *ngFor="let t of memberList"   >
+			<th scope="row">{{ t.idMember}}</th>
+			
+			<td>{{ t.prenom }}</td>
+			
+			
+            <td  >
+                <button class="btn btn-outline-primary"   (click)="assignMember(t.idMember)">Assign Member</button>
+			
+            </td>
+		</tr>
+	</tbody>
+</table>
+</div>

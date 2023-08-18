@@ -1,0 +1,59 @@
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <h1> Add Team </h1>
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+
+
+                
+                <form #EquipeForm="ngForm" (ngSubmit)="addEquipe(EquipeForm)">
+                    
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example1" [(ngModel)]="equipe.pm" name="pm"/>
+                        <label class="form-label" for="form1Example1">PM</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example2" [(ngModel)]="equipe.npp" name="npp"/>
+                        <label class="form-label" for="form1Example1">npp</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example3" [(ngModel)]="equipe.ncp" name="ncp"/>
+                        <label class="form-label" for="form1Example1">ncp</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example4" [(ngModel)]="equipe.projet_on_going" name="projet_on_going"/>
+                        <label class="form-label" for="form1Example1">Projet on going</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example5" [(ngModel)]="equipe.projet_stand_by" name="projet_stand_by"/>
+                        <label class="form-label" for="form1Example1">Projet stand by</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input class="form-control" id="form1Example6" [(ngModel)]="equipe.projet_canceled" name="projet_canceled"/>
+                        <label class="form-label" for="form1Example1">Projet canceled</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        
+                        <select id="form1Example7" name="equipeType" [(ngModel)]="equipe.equipeType" class="custom-select">
+                            <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+                          </select>
+                        <label class="form-label" for="form1Example9">Departement</label>
+                    </div>
+                    
+                   
+                    <div align="end">
+                        <button type="button" class="btn btn-outline-dark">Clear</button>
+                        <button type="submit" class="btn btn-outline-success">Add Equipe</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

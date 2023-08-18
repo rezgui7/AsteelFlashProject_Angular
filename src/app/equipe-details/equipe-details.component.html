@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+        
+            <div class="mt-3">
+                <h2>Team {{equipe.pm}}</h2>
+            </div>
+            <div class="mt-3">
+                Number of Planned Project: <br>
+                {{equipe.npp}}
+            </div>
+            <div class="mt-3">
+                Number of Completed Project: <br>
+                {{equipe.ncp}}
+            </div>
+            <div class="mt-3">
+                Project On Going: <br>
+                {{equipe.projet_on_going}}
+            </div>
+            <div class="mt-3">
+                Project Stand By: <br>
+                {{equipe.projet_stand_by}}
+            </div>
+            <div class="mt-3">
+                Project Canceled: <br>
+                {{equipe.projet_canceled}}
+            </div>
+            <div class="mt-3">
+                Equipe Type: <br>
+                {{equipe.equipeType}}
+            </div>
+            <br>
+            <br>
+            <br>
+            <div align="end">
+                <button type="button" class="btn btn-outline-success" (click)="viewMember(equipe.idEquipe)">Members </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

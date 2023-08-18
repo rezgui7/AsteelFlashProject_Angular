@@ -1,0 +1,64 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <h1> PROJECT LIST </h1>
+<br>
+<br>
+
+    <table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">CLIENT</th>
+			<th scope="col">DESIGNATION</th>
+			<th scope="col">TEST</th>
+            <th scope="col">PM</th>
+            <th scope="col">PE</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">START DATE</th>
+            <th scope="col">END DATE</th>
+            <th scope="col">DUE END DATE</th>
+            <th scope="col">PROGRESS</th>
+            <th scope="col">TARGET</th>
+            <th scope="col">LEAD TIME</th>
+            <th scope="col">DELAY</th>
+            <th scope="col">STATE</th>
+            <th scope="col">Actions</th>
+
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let t of projectList">
+			<th scope="row">{{ t.idProjet}}</th>
+			
+			<td>{{ t.client }}</td>
+			<td>{{ t.projet}}</td>
+            <td>{{ t.designation}}</td>
+            <td>{{ t.pm}}</td>
+            <td>{{ t.pe}}</td>
+            <td>{{ t.status}}</td>
+            <td>{{ t.start_date }}</td>
+			<td>{{ t.end_date}}</td>
+            <td>{{ t.due_end_date}}</td>
+            <td>{{ t.progress}}</td>
+            <td>{{ t.target}}</td>
+            <td>{{ t.lead_time}}</td>
+            <td>{{ t.delay}}</td>
+            <td>{{ t.projetType}}</td>
+            <td>
+                <a class="btn btn-outline-primary" (click)="UpdateProject(t.idProjet)">Update</a>
+            </td>
+            <td>
+                <button [disabled]="t.projetType !== 'AWARDED'" type="button" class="btn btn-outline-success" (click)="CreateProject(t.idProjet)">Create Project</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-success" (click)="viewDetails(t.idProjet)">More Details</button>
+            </td>
+		</tr>
+	</tbody>
+</table>
+</div>

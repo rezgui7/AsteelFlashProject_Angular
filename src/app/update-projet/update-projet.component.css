@@ -1,0 +1,14 @@
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  select:hover {
+    border-color: #007bff;
+  }

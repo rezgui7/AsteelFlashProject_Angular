@@ -1,0 +1,46 @@
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="card p-2">
+
+        <div class="row">
+            <div class="col-6">
+
+
+                
+                   
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Project Manager</th>
+                                <th scope="col">NPP </th>
+                                <th scope="col">DEPARTMENT</th>
+                                <th scope="col">Action</th>
+
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let t of equipeList">
+                                <th scope="row">{{ t.idEquipe}}</th>
+                                <td>{{ t.pm}}</td>
+                                <td>{{ t.npp}}</td>
+                                <td>{{ t.equipeType}}</td>
+                                <td>
+                                    <button [disabled]="t.state == 'Assigned'" type="button" class="btn btn-outline-success" (click)="assign(t.idEquipe)">Assign Team</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                   
+                    
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
