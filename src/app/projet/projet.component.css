@@ -1,3 +1,57 @@
 h1 {
     text-align: center;
   }
+  .status-green {
+    background-color: green;
+    color: white;
+  }
+  
+  .status-yellow {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .status-red {
+    background-color: red;
+    color: white;
+  }
+  
+
+  
+  .table-container {
+    /* ... your existing styles ... */
+    overflow: auto; /* Enable horizontal scrolling if necessary */
+  }
+  
+  .cell-with-border {
+    /* ... your existing styles ... */
+    padding: 8px 12px; /* Add horizontal padding to create more space for buttons */
+    box-sizing: border-box;
+    width: 25%;
+  }
+  
+  
+  .actions-cell {
+    display: flex;
+    flex-direction: column; /* Display buttons vertically */
+    align-items: flex-start; /* Align buttons to the left */
+  }
+  
+  .actions-cell button {
+    margin-top: 5px; /* Add some spacing between buttons */
+  }
+  
+  .mat-elevation-z8 {
+    width: 100%; /* Ensure the table takes up the available width */
+  }
+  .actions-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .actions-buttons a,
+  .actions-buttons button {
+    margin-top: 5px; /* Add desired margin */
+  }
+  

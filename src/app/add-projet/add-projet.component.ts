@@ -56,7 +56,9 @@ addProject(projectForm:NgForm){
     console.log(this.project);
 }
 
-
+clear(){
+  location.reload();
+}
   
   
 }

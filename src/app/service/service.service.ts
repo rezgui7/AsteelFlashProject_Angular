@@ -15,6 +15,7 @@ export class ServiceService {
   userUrl3="http://localhost:1123/asteel/projet/";
   userUrl4="http://localhost:1123/asteel/SousProjets/";
 
+  newsApiUrlTechCrunch="https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=ee72ebff7866467a8f3d0c7c88e7c400";
 
   constructor(private http:HttpClient) { }
 
@@ -63,7 +64,25 @@ export class ServiceService {
   test(id:any){
     return this.http.get(this.userUrl2+'test'+`/${id}`);
   }
+  progressPourcentage(){
+    return this.http.get(this.userUrl3+'displayresult');
+  }
+  leadPourcentage(){
+    return this.http.get(this.userUrl3+'displayresultLead');
+  }
   unassignMember(id:any,id1:any){
     return this.http.post(this.userUrl+'unassign'+`/${id1}`+`/${id}`,id);
+  }
+  getMostHardWorking(){
+    return this.http.get<Equipe>(this.userUrl+'getMostHardWorking');
+  }
+  displayEquipewithoutMember(){
+    return this.http.get<Equipe[]>(this.userUrl+'displayEquipewithoutMember');
+  }
+  displaySPwithoutTeam(){
+    return this.http.get<SousProject[]>(this.userUrl4+'displaySPwithoutTeam');
+  }
+  techNews():Observable<any>{
+    return this.http.get(this.newsApiUrlTechCrunch);
   }
 }

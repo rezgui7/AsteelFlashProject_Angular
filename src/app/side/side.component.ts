@@ -23,5 +23,17 @@ export class SideComponent {
   addMember(){
     this.r.navigate(['admin/addMember']);
   }
+  stats(){
+    this.r.navigate(['admin/stats']);
+  }
+viewProfile(){
+  this.r.navigate(['admin/profile']);
 
+}
+news(){
+  this.r.navigate(['admin/news']);
+}
+calendar(){
+  this.r.navigate(['admin/calendar']);
+}
 }

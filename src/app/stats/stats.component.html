@@ -1,0 +1,52 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    
+    <h1> STATS </h1>
+    <br>
+    <br>
+    <div class="container-fluid">
+        <!-- First Chart Card -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Progress By CLIENT</h2>
+                        <canvas id="barchart"></canvas>
+                    </div>
+                </div>
+            </div>
+    
+        <br><br><br>
+    
+        <!-- Second Chart Card -->
+            <div class="col-md-6">
+                <div class="card h-100 ">
+                    <div class="card-body">
+                        <h2 class="card-title">Overall Teams Rendement</h2>
+                        <canvas id="piechart" ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <br><br><br>
+    
+        <!-- Third Chart Card (Conditionally Rendered) -->
+        <div *ngIf="chart" >
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Progression State</h2>
+                        <!-- Assuming chart holds the chart content or configuration -->
+                        <canvas id="canvas">{{ chart }}</canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

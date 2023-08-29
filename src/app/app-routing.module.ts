@@ -13,6 +13,10 @@ import { EquipeDetailsComponent } from './equipe-details/equipe-details.componen
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { SousProjectComponent } from './sous-project/sous-project.component';
 import { AssignTeamComponent } from './assign-team/assign-team.component';
+import { StatsComponent } from './stats/stats.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NewsComponent } from './news/news.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -66,6 +70,22 @@ const routes: Routes = [
       {
         path:'assignTeam',
         component:AssignTeamComponent
+      },
+      {
+        path:'stats',
+        component:StatsComponent
+      },
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path:'news',
+        component:NewsComponent
+      },
+      {
+        path:'calendar',
+        component:CalendarComponent
       }
     ]
   }

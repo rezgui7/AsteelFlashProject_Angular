@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+}
+/* Add custom styling for smaller cards */
+.card-small {
+    max-width: 2000px; /* Adjust the width as needed */
+    max-height: 3000px; /* Adjust the height as needed */
+    margin: 10px;
+}
+/* Add custom styling for smaller chart cards */

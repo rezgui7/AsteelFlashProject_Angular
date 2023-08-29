@@ -6,59 +6,54 @@
 <div class="container">
     <h1> PROJECT LIST </h1>
 <br>
+<h5>Progress :</h5>
+<p>{{progress}} %</p>
+<h5>Mean Lead Time(CW) :</h5>
+<p>{{lead}}</p>
+
 <br>
+<mat-card>
+    <mat-card-header>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Search">
+      </mat-form-field>
+    </mat-card-header>
+      <mat-card-content>
+        <div class="table-container" style="width: 100%; height: 100%; overflow-y: scroll;">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+                <mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</mat-header-cell>
+                <mat-cell *matCellDef="let element" class="cell-with-border">
+                    <ng-container *ngIf="column !== 'actions'; else actionsCell">
+                        <ng-container *ngIf="column !== 'target' && column !== 'progress'; else progressTargetCell">
+                            {{ element[column] }}
+                        </ng-container>
+                        <ng-template #progressTargetCell>
+                            <div *ngIf="column === 'target' || column === 'progress'" class="progress-target">
+                                {{ element[column] }}%
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #actionsCell>
+                        <div class="actions-buttons">
+                            <a class="btn btn-outline-primary" (click)="UpdateProject(element.idProjet)">Update</a>
+                            <button [disabled]="element.projetType !== 'AWARDED'" type="button" class="btn btn-outline-success" (click)="CreateProject(element.idProjet)">Create Project</button>
+                            <button type="button" class="btn btn-outline-success" (click)="viewDetails(element.idProjet)">More Details</button>
+                        </div>
+                    </ng-template>
+                </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </table>
+        
+    </div>
+    </mat-card-content>
+    <mat-card-footer>
 
-    <table class="table table-striped">
-	<thead>
-		<tr>
-			<th scope="col">ID</th>
-			<th scope="col">CLIENT</th>
-			<th scope="col">DESIGNATION</th>
-			<th scope="col">TEST</th>
-            <th scope="col">PM</th>
-            <th scope="col">PE</th>
-            <th scope="col">STATUS</th>
-            <th scope="col">START DATE</th>
-            <th scope="col">END DATE</th>
-            <th scope="col">DUE END DATE</th>
-            <th scope="col">PROGRESS</th>
-            <th scope="col">TARGET</th>
-            <th scope="col">LEAD TIME</th>
-            <th scope="col">DELAY</th>
-            <th scope="col">STATE</th>
-            <th scope="col">Actions</th>
-
-
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let t of projectList">
-			<th scope="row">{{ t.idProjet}}</th>
-			
-			<td>{{ t.client }}</td>
-			<td>{{ t.projet}}</td>
-            <td>{{ t.designation}}</td>
-            <td>{{ t.pm}}</td>
-            <td>{{ t.pe}}</td>
-            <td>{{ t.status}}</td>
-            <td>{{ t.start_date }}</td>
-			<td>{{ t.end_date}}</td>
-            <td>{{ t.due_end_date}}</td>
-            <td>{{ t.progress}}</td>
-            <td>{{ t.target}}</td>
-            <td>{{ t.lead_time}}</td>
-            <td>{{ t.delay}}</td>
-            <td>{{ t.projetType}}</td>
-            <td>
-                <a class="btn btn-outline-primary" (click)="UpdateProject(t.idProjet)">Update</a>
-            </td>
-            <td>
-                <button [disabled]="t.projetType !== 'AWARDED'" type="button" class="btn btn-outline-success" (click)="CreateProject(t.idProjet)">Create Project</button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-outline-success" (click)="viewDetails(t.idProjet)">More Details</button>
-            </td>
-		</tr>
-	</tbody>
-</table>
+    
+    </mat-card-footer>
+</mat-card>
+  
 </div>
