@@ -36,6 +36,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { NewsComponent } from './news/news.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AddEventComponent } from './add-event/add-event.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -60,7 +62,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     StatsComponent,
     ProfileComponent,
     NewsComponent,
-    CalendarComponent
+    CalendarComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     MatSelectModule,
     MatCardModule,
     MatTooltipModule,
-    ScheduleModule, RecurrenceEditorModule
+    ScheduleModule, 
+    RecurrenceEditorModule,
+    MatDatepickerModule
 
   ],
   providers: [DatePipe,DayService,WorkWeekService,MonthService,MonthAgendaService],

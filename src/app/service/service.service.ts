@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Equipe } from 'src/_models/equipe.module';
 import { Member } from 'src/_models/member.model';
 import { Project } from 'src/_models/project.module';
+import { Schedule } from 'src/_models/schedule.module';
 import { SousProject } from 'src/_models/sousProject.module';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class ServiceService {
   userUrl2="http://localhost:1123/asteel/member/";
   userUrl3="http://localhost:1123/asteel/projet/";
   userUrl4="http://localhost:1123/asteel/SousProjets/";
+  userUrl5="http://localhost:1123/asteel/schedule/";
 
   newsApiUrlTechCrunch="https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=ee72ebff7866467a8f3d0c7c88e7c400";
 
@@ -31,6 +33,9 @@ export class ServiceService {
   addMember(t:Member){
     return this.http.post<Member>(this.userUrl2+'addEquipeMember' , t);
   } 
+  addSchedule(t:Schedule){
+    return this.http.post<Schedule>(this.userUrl5+'addScheduleEntry' , t);
+  } 
   getAllProjects(){
     return this.http.get<Project[]>(this.userUrl3+'displayProjets');
   }
@@ -45,6 +50,9 @@ export class ServiceService {
   }
   getAllMembers(){
     return this.http.get<Member[]>(this.userUrl2+'displayEquipeMember');
+  }
+  getAllSchedule(){
+    return this.http.get<Schedule[]>(this.userUrl5+'displayScheduleEntry');
   }
   updateProject(p:Project): Observable<Object>{
     return this.http.put(this.userUrl3+'updateProjets', p);
@@ -84,5 +92,8 @@ export class ServiceService {
   }
   techNews():Observable<any>{
     return this.http.get(this.newsApiUrlTechCrunch);
+  }
+  deleteProject(id:number){
+    return this.http.delete(this.userUrl3+'deleteProjets'+`/${id}`);
   }
 }

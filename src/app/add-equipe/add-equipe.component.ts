@@ -40,4 +40,7 @@ export class AddEquipeComponent implements OnInit {
 
     console.log(this.equipe);
 }
+clear(equipeForm:NgForm){
+  equipeForm.reset();
+}
 }

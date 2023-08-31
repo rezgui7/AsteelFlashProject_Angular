@@ -36,4 +36,8 @@ news(){
 calendar(){
   this.r.navigate(['admin/calendar']);
 }
+addEvent(){
+  this.r.navigate(['admin/addEvent']);
+
+}
 }

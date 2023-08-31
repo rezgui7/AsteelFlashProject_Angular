@@ -17,6 +17,7 @@ import { StatsComponent } from './stats/stats.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NewsComponent } from './news/news.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
       {
         path:'calendar',
         component:CalendarComponent
+      },
+      {
+        path:'addEvent',
+        component:AddEventComponent
       }
     ]
   }

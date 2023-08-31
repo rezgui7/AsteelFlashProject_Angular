@@ -37,4 +37,7 @@ export class AddMemberComponent {
     console.log(this.member);
     this.r.navigate(['admin/equipe']);
 }
+clear(projectForm:NgForm){
+  projectForm.reset();
+}
 }

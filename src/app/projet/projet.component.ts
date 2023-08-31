@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-projet',
@@ -34,6 +35,7 @@ export class ProjetComponent implements OnInit {
   searchText:any;
   projectList1: any[] = []; 
   dataSource = new MatTableDataSource<any>(this.projectList1);
+  selectedDate: any;
 
   constructor(private r:Router, private http:ServiceService){}
 
@@ -59,6 +61,10 @@ export class ProjetComponent implements OnInit {
   viewDetails(id:any){
     this.r.navigate(['admin/projectDetails',{id:id}]);
   }
+  delete(id:any){
+    this.http.deleteProject(id).subscribe(data=>console.log(data));
+    location.reload();
+  }
   getStatusColorClass(status: string): string {
     switch (status) {
       case 'Released':
@@ -71,11 +77,13 @@ export class ProjetComponent implements OnInit {
         return '';
     }
   }
+  
   applyFilter(filterValue: string) {
     if (filterValue != null) {
       this.dataSource.filter = filterValue.trim().toLowerCase();
     }
   }
+  
   
   
 }

@@ -50,4 +50,7 @@ export class AddSousProjectComponent {
     );
     console.log(this.sousProject);
 }
+clear(projectForm:NgForm){
+  projectForm.reset();
+}
 }
