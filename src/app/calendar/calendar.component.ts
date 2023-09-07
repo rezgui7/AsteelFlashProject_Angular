@@ -26,7 +26,6 @@ export class CalendarComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: ServiceService) {}
 
   ngOnInit(): void {
-    
     this.loadSchedules();
   }
 

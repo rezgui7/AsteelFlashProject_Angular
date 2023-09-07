@@ -15,7 +15,12 @@
 <mat-card>
     <mat-card-header>
       <mat-form-field>
-        <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Client Name">
+        <input matInput (keyup)="applyClientFilter($any($event.target).value)" placeholder="Filter By Client Name">
+
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput (keyup)="applyStartDateFilter($any($event.target).value)" placeholder="Filter By Start Date">
+
       </mat-form-field>
     </mat-card-header>
     

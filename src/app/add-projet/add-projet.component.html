@@ -10,7 +10,7 @@
 
 
                 
-                <form #projectForm="ngForm" (ngSubmit)="addProject(projectForm)">
+                <form  #projectForm="ngForm" (ngSubmit)="addProject(projectForm)">
                     
                     <div class="form-outline mb-4">
                         <input class="form-control" id="form1Example1" [(ngModel)]="project.client" name="client"/>
@@ -55,7 +55,7 @@
                         <label class="form-label" for="form1Example9">Due End Date</label>
                     </div>
                     <div class="form-outline mb-4">
-                        <input class="form-control" id="form1Example11" [(ngModel)]="project.progress" name="progress"/>
+                        <input class="form-control"  id="form1Example11" [(ngModel)]="project.progress" name="progress"/>
                         <label class="form-label" for="form1Example9">Progress</label>
                     </div>
                     <div class="form-outline mb-4">

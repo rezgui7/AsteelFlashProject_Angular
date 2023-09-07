@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-projet',
@@ -11,6 +12,8 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 
 export class ProjetComponent implements OnInit {
+  @ViewChild(MatSort) sort!: MatSort; // Add this line to access the MatSort directive
+
   displayedColumns: string[] = [
     'idProjet',
     'client',
@@ -35,11 +38,25 @@ export class ProjetComponent implements OnInit {
   searchText:any;
   projectList1: any[] = []; 
   dataSource = new MatTableDataSource<any>(this.projectList1);
+  dataSource2 = new MatTableDataSource<any>(this.projectList1);
   selectedDate: any;
 
   constructor(private r:Router, private http:ServiceService){}
 
   ngOnInit(): void {
+  // Set the MatSort to your data source
+  this.dataSource.sort = this.sort;
+
+  // Apply custom filter function
+  this.dataSource.filterPredicate = (data, filter) => {
+    const searchString = filter.trim().toLowerCase();
+    const dateString = data.start_date.toLowerCase();
+    const clientName = data.client.toLowerCase();
+
+    // Check if the filter string is present in either the "start_date" or "client" column
+    return dateString.includes(searchString) || clientName.includes(searchString);
+  };
+
     this.http.getAllProjects().subscribe(data => {
       this.projectList1 = data;
       console.log(data)
@@ -49,6 +66,8 @@ export class ProjetComponent implements OnInit {
     });
     this.http.progressPourcentage().subscribe(data => this.progress=data);
     this.http.leadPourcentage().subscribe(data => this.lead=data);
+
+    
   }
   
 
@@ -78,11 +97,27 @@ export class ProjetComponent implements OnInit {
     }
   }
   
-  applyFilter(filterValue: string) {
+  applyStartDateFilter(filterValue: string) {
     if (filterValue != null) {
+      this.applyFilter(filterValue, 'start_date');
+    }
+  }
+  
+  applyClientFilter(filterValue: string) {
+    if (filterValue != null) {
+      this.applyFilter(filterValue, 'client');
+    }
+  }
+  
+  applyFilter(filterValue: string, column: string) {
+    if (filterValue != null) {
+      // Your existing filter logic here
       this.dataSource.filter = filterValue.trim().toLowerCase();
     }
   }
+  
+  
+  
   
   
   

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
-import {NgForm} from '@angular/forms';
+import {FormGroup, NgForm, Validators} from '@angular/forms';
 import { Project } from 'src/_models/project.module';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-projet',
@@ -34,7 +35,7 @@ export class AddProjetComponent implements OnInit {
   statusOptionss = ['Released','On going','Canceled'];
 
 
- constructor(private http:ServiceService){}
+ constructor(private router:Router,private http:ServiceService){}
  ngOnInit(): void {
    
  }
@@ -52,7 +53,7 @@ addProject(projectForm:NgForm){
         console.log(error);
       }
     );
-    projectForm.reset();
+    this.router.navigate(['admin/project']);
     console.log(this.project);
 }
 
@@ -60,5 +61,5 @@ clear(projectForm:NgForm){
   projectForm.reset();
 }
   
-  
+
 }
